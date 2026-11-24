@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Screening</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Resume<span>AI</span></div>
+        <div class="nav-label">AI Resume Screening & Job Matching</div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>AI Resume Screening</h1>
+            <p>Analyze your resume and discover how well it matches your dream job.</p>
+        </section>
+
+        <section class="main-card">
+            <div class="upload-section">
+                <h2>Upload Your Resume</h2>
+                <label for="resumeFile" class="upload-box">
+                    <div class="upload-icon">📄</div>
+                    <p>Click here to upload your resume</p>
+                    <span>PDF or DOCX files</span>
+                </label>
+                <input type="file" id="resumeFile" accept=".pdf,.docx">
+                <p id="fileName">No file selected</p>
+            </div>
+
+            <div class="job-section">
+                <h2>Job Description</h2>
+                <textarea id="jobDescription" placeholder="Paste the job description here...
+
+Example:
+We are looking for a Python developer with knowledge of SQL, Flask, Machine Learning and communication skills."></textarea>
+            </div>
+
+            <button id="analyzeBtn">Analyze Resume ✨</button>
+
+            <div id="loading" class="hidden">Analyzing your resume...</div>
+
+            <div id="result" class="hidden">
+                <h2>Analysis Results</h2>
+                <div class="score-box">
+                    <span id="score">0%</span>
+                    <p>Resume Match Score</p>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>✅ Matched Skills</h3>
+                        <ul id="matchedSkills"></ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>❌ Missing Skills</h3>
+                        <ul id="missingSkills"></ul>
+                    </div>
+                </div>
+
+                <div class="suggestions">
+                    <h3>💡 AI Suggestions</h3>
+                    <ul id="suggestions"></ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>AI Resume Screening & Job Matching System | Student Project</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
